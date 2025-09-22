@@ -15,11 +15,27 @@ function getCharacters() {
 }
 
 
-// Appel de l'API et affichage dans la console
+// Appel de l'API et modification du contenu de la liste
 function loadCharacters() {
     getCharacters().then(characters => {
         console.log('Personnages Marvel récupérés:', characters);
         console.log('Nombre de personnages:', characters.length);
+        
+        // Récupérer la liste ul
+        const charactersList = document.getElementById('characters');
+        
+        if (charactersList) {
+            // Vider la liste existante
+            charactersList.innerHTML = '';
+            
+            // Ajouter chaque personnage à la liste
+            characters.forEach(character => {
+                const li = document.createElement('li');
+                li.textContent = character.name;
+                li.setAttribute('data-id', character.id);
+                charactersList.appendChild(li);
+            });
+        }
     });
 }
 
