@@ -1,16 +1,15 @@
 import './App.css'
-import AboutPage from './pages/AboutPage';
-import CharactersPage from './pages/CharactersPage';
-import ContactPage from './pages/ContactPage';
+import { createBrowserRouter, RouterProvider } from "react-router";
+import routes from './routes';
+
+// router to navigate through the app
+const router = createBrowserRouter(routes);
 
 function App() {
   return (
-    <div>
-      <h1>Marvel App</h1>
-      <CharactersPage />
-      <AboutPage />
-      <ContactPage />
-    </div>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 }
 
