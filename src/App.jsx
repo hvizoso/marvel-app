@@ -1,5 +1,6 @@
 import './App.css'
 import characters from './data/characters.json';
+import NumberOfCharacters from './components/NumberOfCharacters';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
           <li key={character.id}>{character.name}</li>
         ))}
       </ul>
+      <NumberOfCharacters characters={characters} />
     </div>
   );
 }
